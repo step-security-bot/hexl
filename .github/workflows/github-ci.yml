@@ -44,6 +44,11 @@ jobs:
     name: Format
     runs-on: ubuntu-20.04
     steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@v2
+        with:
+          egress-policy: audit
+
       - uses: actions/checkout@v2
       # Required for pre-commit
       - run: pip3 install cpplint==1.5.5
@@ -74,6 +79,11 @@ jobs:
           - os: macos-latest
             build_type: Debug
     steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@v2
+        with:
+          egress-policy: audit
+
       - uses: actions/checkout@v2
       - name: Setup cmake
         uses: jwlawson/actions-setup-cmake@v1.10
@@ -155,6 +165,11 @@ jobs:
         shared_lib: [OFF]
 
     steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@v2
+        with:
+          egress-policy: audit
+
       - uses: actions/checkout@v2
       - name: Default build
         run: |
@@ -200,6 +215,11 @@ jobs:
           - os: macos-latest
             build_type: Debug
     steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@v2
+        with:
+          egress-policy: audit
+
       - uses: actions/checkout@v2
       - name: Setup cmake
         uses: jwlawson/actions-setup-cmake@v1.10
@@ -284,6 +304,11 @@ jobs:
         build_type: [Release]
         shared_lib: [ON]
     steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@v2
+        with:
+          egress-policy: audit
+
       - uses: actions/checkout@v2
       - name: Default build
         run: |
